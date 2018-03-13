@@ -1,0 +1,10 @@
+.fixed-topright {
+	position: fixed;
+	float: right;
+	/*the margin is needed otherwise it overlaps the left col*/
+	margin-left: 50%;
+}
+
+.disclaimer {
+	margin-top: 20px;
+}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MDS Subtyping Tool</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head>
+<link rel="stylesheet" type="text/css" href="./style.css">
+<body>
+
+<div class="container-fluid">
+
+<div class="row">
+	<div class="col-md-6">
+
+<div class="card">
+  <div class="card-header">
+    Patient information
+  </div>
+  <div class="card-body">
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="subtype-tab" data-toggle="tab" href="#subtype" role="tab" aria-controls="subtype" aria-selected="true">Subtyping</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="ipssr-tab" data-toggle="tab" href="#ipssr" role="tab" aria-controls="ipssr" aria-selected="false">IPSS-R</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+
+<div class="tab-pane fade show active" id="subtype" role="tabpanel" aria-labelledby="subtype-tab">
+<form id="patient_details">
+
+
+<h4>MDS-defining cytogenetics</h4>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="mds_defining_cyto" name="mds_defining_cyto" checked>
+    <label class="form-check-label" for="mds_defining_cyto" >Present</label>
+</div>
+
+<hr class="mb-4">
+
+<h4>Blast count</h4>
+&gt1.5 considered excess blasts.
+<div class="form-group row">
+    <label for="blast_count" class="col-sm-2 col-form-label">Blast count</label>
+    <div class="col-sm-3"><input type="number" class="form-control" id="blast_count" name="blast_count"  step=0.1></div>
+  </div>
+
+
+<hr class="mb-4">
+<h4>Cytopenias</h4>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="anemia" name="anemia">
+    <label class="form-check-label" for="anemia" >Anemia</label>
+</div>
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" id="neutropenia" name="neutropenia">
+    <label class="form-check-label" for="neutropenia" >Neutropenia</label>
+</div>
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" id="thrombocytopenia" name="thrombocytopenia">
+    <label class="form-check-label" for="thrombocytopenia">Thrombocytopenia</label>
+  </div>
+
+<hr class="mb-4">
+<h4>Iron stain</h4>
+<div class="form-group row">
+    <label for="ringed_sideroblasts" class="col-sm-3 col-form-label">Ringed sideroblasts</label>
+    <div class="col-sm-3"><input type="number" class="form-control" id="ringed_sideroblasts" name="ringed_sideroblasts" step=0.1></div>
+  </div>
+  SF3B1 mutation status:
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="sf3b1" id="sf3b1_mutated" value="sf3b1_mutated">
+  <label class="form-check-label" for="sf3b1_mutated">
+   Mutated
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="sf3b1" id="sf3b1_normal" value="sf3b1_normal">
+  <label class="form-check-label" for="sf3b1_normal">
+    Normal
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="sf3b1" id="sf3b1_unknown" value="sf3b1_unknown">
+  <label class="form-check-label" for="sf3b1_unknown">
+    Unknown
+  </label>
+</div>
+
+<hr class="mb-4">
+<h4>Lineages of dysplasia</h4>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="lineages" id="unilineage" value="unilineage">
+  <label class="form-check-label" for="unilineage">
+   Unilineage
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="lineages" id="multilineage" value="multilineage">
+  <label class="form-check-label" for="multilineage">
+    Multilineage
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="lineages" id="no_dysplasia" value="no_dysplasia">
+  <label class="form-check-label" for="no_dysplasia">
+    No dysplasia
+  </label>
+</div>
+
+</form>
+</div>
+
+<div class="tab-pane fade" id="ipssr" role="tabpanel" aria-labelledby="ipssr-tab">
+<div class="form-group row">
+    <label for="haemoglobin" class="col-sm-3 col-form-label">Haemoglobin</label>
+    <div class="col-sm-3"><input type="number" class="form-control" id="haemoglobin" name="haemoglobin" step=0.1></div>
+  </div>
+<div class="form-group row">
+  <label for="bm_blast_score" class="col-sm-3 col-form-label">BM blast score</label>
+  <div class="col-sm-3"><input type="number" class="form-control" id="bm_blast_score" name="bm_blast_score" step=0.1></div>
+</div>
+<div class="form-group row">
+  <label for="platelets" class="col-sm-3 col-form-label">Platelets</label>
+  <div class="col-sm-3"><input type="number" class="form-control" id="platelets" name="platelets" step=0.1></div>
+</div>
+<div class="form-group row">
+  <label for="neutrophils" class="col-sm-3 col-form-label">Neutrophils</label>
+  <div class="col-sm-3"><input type="number" class="form-control" id="neutrophils" name="neutrophils" step=0.1></div>
+</div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="rbc_transfusion" name="rbc_transfusion">
+    <label class="form-check-label" for="rbc_transfusion" >RBC transfusion</label>
+</div>
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" id="epo" name="epo">
+    <label class="form-check-label" for="epo" >EPO</label>
+</div>
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" id="plt_transfusion" name="plt_transfusion">
+    <label class="form-check-label" for="plt_transfusion">Platelet transfusion</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="gcsf" name="gcsf">
+    <label class="form-check-label" for="gcsf">GCSF</label>
+  </div>
+
+<hr class="mb-4">
+
+<!-- start cytogenetics -->
+<h4>Cytogenetics</h4>
+<div class="form-group row">
+  <label for="total_cyto_changes" class="col-sm-3 col-form-label">Total cytogenetic changes</label>
+  <div class="col-sm-3"><input type="number" class="form-control" id="total_cyto_changes" name="total_cyto_changes"></div>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Monosomy 7" name="Monosomy 7">
+<label class="form-check-label" for="cytogenetics_Monosomy 7" >Monosomy 7</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_7q" name="7q">
+<label class="form-check-label" for="cytogenetics_7q" >7q</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Monosomy 5" name="Monosomy 5">
+<label class="form-check-label" for="cytogenetics_Monosomy 5" >Monosomy 5</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_5q" name="5q">
+<label class="form-check-label" for="cytogenetics_5q" >5q</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_i(17q)" name="i(17q)">
+<label class="form-check-label" for="cytogenetics_i(17q)" >i(17q)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_t(17p)" name="t(17p)">
+<label class="form-check-label" for="cytogenetics_t(17p)" >t(17p)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Del 13" name="Del 13">
+<label class="form-check-label" for="cytogenetics_Del 13" >Del 13</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Del (13q)" name="Del (13q)">
+<label class="form-check-label" for="cytogenetics_Del (13q)" >Del (13q)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Del (11q)" name="Del (11q)">
+<label class="form-check-label" for="cytogenetics_Del (11q)" >Del (11q)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Del (12p)" name="Del (12p)">
+<label class="form-check-label" for="cytogenetics_Del (12p)" >Del (12p)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_t(12p)" name="t(12p)">
+<label class="form-check-label" for="cytogenetics_t(12p)" >t(12p)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Del (9q)" name="Del (9q)">
+<label class="form-check-label" for="cytogenetics_Del (9q)" >Del (9q)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_idic(X)(q13)" name="idic(X)(q13)">
+<label class="form-check-label" for="cytogenetics_idic(X)(q13)" >idic(X)(q13)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_t(11:16)(q23;p13)" name="t(11:16)(q23;p13)">
+<label class="form-check-label" for="cytogenetics_t(11:16)(q23;p13)" >t(11:16)(q23;p13)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_t(3:21)(q26q22)" name="t(3:21)(q26q22)">
+<label class="form-check-label" for="cytogenetics_t(3:21)(q26q22)" >t(3:21)(q26q22)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_t(1;3)(p36;q21)" name="t(1;3)(p36;q21)">
+<label class="form-check-label" for="cytogenetics_t(1;3)(p36;q21)" >t(1;3)(p36;q21)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_t(2:11)(p21;q23)" name="t(2:11)(p21;q23)">
+<label class="form-check-label" for="cytogenetics_t(2:11)(p21;q23)" >t(2:11)(p21;q23)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_inv(3)(q21q26)" name="inv(3)(q21q26)">
+<label class="form-check-label" for="cytogenetics_inv(3)(q21q26)" >inv(3)(q21q26)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_t(6;9)(p23;q34)" name="t(6;9)(p23;q34)">
+<label class="form-check-label" for="cytogenetics_t(6;9)(p23;q34)" >t(6;9)(p23;q34)</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_20q" name="20q">
+<label class="form-check-label" for="cytogenetics_20q" >20q</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Trisomy 8" name="Trisomy 8">
+<label class="form-check-label" for="cytogenetics_Trisomy 8" >Trisomy 8</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Del Y" name="Del Y">
+<label class="form-check-label" for="cytogenetics_Del Y" >Del Y</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Del 3q" name="Del 3q">
+<label class="form-check-label" for="cytogenetics_Del 3q" >Del 3q</label>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="cytogenetics_Trisomy 19" name="Trisomy 19">
+<label class="form-check-label" for="cytogenetics_Trisomy 19" >Trisomy 19</label>
+</div>
+
+
+<!-- end cytogenetics -->
+
+<!-- end ipssr tab -->
+</div> 
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="col-md-6 fixed-topright">
+
+<div class="card">
+  <div class="card-header">
+    Results
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Subtyping summary</h5>
+    <p class="card-text" id="output">Click Subtype or IPSS-R to see results here</p>
+  </div>
+</div>
+
+    <button type="button" class="btn btn-primary" onclick="run_subtype()">Subtype</button>
+    <button type="button" class="btn btn-primary" onclick="run_ipssr()">IPSS-R</button>
+  <div id="alerts" class="row"></div>
+</div>
+</div> <!-- end of form row -->
+
+<!-- disclaimer -->
+<div class="row disclaimer">
+  <div class="col-md-6 offset-md-3">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">Disclaimer</h4>
+    <p>This is a research tool under active development and is not guaranteed to give the correct result. It is only intended to be used by trained medical professionals. All output should be manually confirmed. <strong>The output of this tool does not constitute a medical diagnosis or medical advice.</strong></p>
+    <hr>
+    <p class="mb-0">Check the github page for more information.</p>
+  </div>
+</div>
+</div>
+
+</div> <!-- end of container -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="subtype.js"></script>
+<script type="text/javascript" src="form_submit.js"></script>
+
+
+
+</body>
+</html>
